@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/Pizza.css">
+    <title>Pizza Time!</title>
+  </head>
+  <body>
+
+<div class="everything">
+    <div class="ItemsB">
+    <div class="Items">
+        <form>
+            <p>Pick your size: </p>
+        <input type="radio" name="size" value="Personal" > Personal</input>&nbsp
+        <input type="radio" name="size" value="Medium" checked> Medium</input>&nbsp
+        <input type="radio" name="size" value="Large" > Large</input>&nbsp
+        <input  type="radio" name="size" value="Extra Large" > Extra Large</input>&nbsp
+    </div>
+        <br/>
+
+        <!-- FIRST ONE IS COMPLEMENTARY-->
+    <div class="Items">
+            <p>Now pick your meats... (First one's on us!)</p>
+        <input type="checkbox" name="meat" value="Pepperoni" > Pepperoni</input>&nbsp
+        <input type="checkbox" name="meat" value="Sausage" > Sausage</input>&nbsp
+        <input type="checkbox" name="meat" value="Canadian Bacon" > Canadian Bacon</input>&nbsp
+        <input type="checkbox" name="meat" value="Ground Beef" > Ground Beef</input>&nbsp
+        <input type="checkbox" name="meat" value="Anchovy" > Anchovy</input>&nbsp
+        <input type="checkbox" name="meat" value="Chicken" > Chicken</input>&nbsp
+    </div>
+        <br/>
+    <div class="Items">
+        <p>Pick your level of cheese please:</p>
+        <input type="radio" name="cheese" value="Regular" checked> Regular</input>&nbsp
+        <input type="radio" name="cheese" value="No Cheese" > No Cheese</input>&nbsp
+        <input type="radio" name="cheese" value="Extra Cheese" > Extra Cheese</input>&nbsp
+    </div>
+        <br/>
+    <div class="Items">
+            <p>Try any of our unique crusts!</p>
+        <input type="radio" name="crust" value="Plain" > Plain</input>&nbsp
+        <input type="radio" name="crust" value="Garlic Butter" checked> Garlic Butter</input>&nbsp
+        <input type="radio" name="crust" value="Cheese Stuffed" > Cheese Stuffed</input>&nbsp
+        <input type="radio" name="crust" value="Spicy" > Spicy</input>&nbsp
+        <input type="radio" name="crust" value="House Special" > House Special</input>&nbsp
+    </div>
+        <br/>
+    <div class="Items">
+            <p>Try it with any sauce!</p>
+        <input type="radio" name="sauce" value="Marinara" checked> Marinara</input>&nbsp
+        <input type="radio" name="sauce" value="White" > White</input>&nbsp
+        <input type="radio" name="sauce" value="Barbeque" > Barbeque</input>&nbsp
+        <input type="radio" name="sauce" value="No" > No Sauce</input>&nbsp
+    </div>
+        <br/>
+
+        <!-- FIRST ONE IS COMPLEMENTARY-->
+    <div class="Items">
+            <p>And lastly, your veggies... (First one's on us!)</p>
+        <input type="checkbox" name="veggies"  value="Tomatoes" > Tomatoes </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Onions" > Onions </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Olives" > Olives </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Green Peppers" > Green Peppers </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Mushrooms" > Mushrooms </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Pineapple" > Pineapple </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Spinach" > Spinach </input>&nbsp
+        <input type="checkbox" name="veggies"  value="Jalapeno" > Jalapeno </input>&nbsp
+    </div>
+    </div> <!--ItemsBackground /div-->
+
+        <br/>
+    <div id= "buttons">
+        <button id="order" type="button" onclick = "Total();"> Order </button>
+        
+        <button id="cancel" type="button" onclick = "Cancel();"> Cancel </button>
+    </div>
+
+    </form>
+        <br/><br/>
+
+
+    <div id="receipts" class= "receipt">
+        <p id="size"></p>
+        
+        <p id="crust"></p>
+        
+        <p id="cheese"></p>
+        
+        <p id="meat"></p>
+        
+        <p id="sauce"></p>
+        
+        <p id="veggies"></p>
+        <br/>
+        <p id="total"></p>
+    </div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    
+    
+    
+    
+    <script>
+
+        function Total() {
+
+            var size = document.querySelector('input[name="size"]:checked').value;
+            var cheese = document.querySelector('input[name="cheese"]:checked').value;
+            var crust = document.querySelector('input[name="crust"]:checked').value;
+            var sauce = document.querySelector('input[name="sauce"]:checked').value;
+
+            var TempMeatNum = 0;
+            var TempVeggieNum = 0;
+            var veggieNum = 0;
+            var meatNum = 0;
+            var crustNum;
+            var cheeseNum;
+            var sizeNum;
+            
+
+            //Setting Nums...
+
+             //Setting sizeNum
+            
+            if (size=="Personal") { 
+                sizeNum=6 
+            }
+
+            else if (size=="Medium") { 
+                sizeNum=10
+            }
+
+            else if (size=="Large") { 
+                sizeNum=14 
+            }
+
+            else if (size=="Extra Large") { 
+                sizeNum=16 
+            }
+
+
+             //Setting cheeseNum
+           if (cheese=="Extra Cheese"){
+            cheeseNum = 3
+           }
+           else {
+               cheeseNum = 0;
+           };
+
+           //Setting crustNum
+            if (crust == "Cheese Stuffed") { 
+                crustNum = 3 ;
+            }
+            else {
+                crustNum = 0;
+            };
+
+             //Setting sauceNum
+            var sauceNum = 0;
+            
+
+            //Checking checkboxes by taking the values into arrays and using the length of the array to indicate number of topings selected. (-1 since the first one is free <3 )
+
+            var meat  =[];
+            $.each($("input[name='meat']:checked"), function(){ 
+                meat.push($(this).val()); })
+               
+                TempMeatNum = meat.length;
+
+            if (TempMeatNum > 0) {
+                TempMeatNum= TempMeatNum - 1 ;
+                }
+            
+                meatNum =TempMeatNum;
+
+            var veggies  = [];
+            $.each($("input[name='veggies']:checked"), function(){            
+                veggies.push($(this).val()); });
+
+                TempVeggieNum = veggies.length;
+
+                if (TempVeggieNum > 0) {
+                TempVeggieNum--
+                }
+            
+                veggieNum = TempVeggieNum;
+
+                //Adding checked values for final total
+                var total = sizeNum + cheeseNum+ crustNum+ sauceNum + veggieNum + meatNum;
+                
+                //printing values to our print element
+
+            document.getElementById("size").innerHTML =size+ "   $"+sizeNum;
+
+            document.getElementById("crust").innerHTML = crust+ "   $"+ crustNum;
+
+            document.getElementById("cheese").innerHTML = cheese + "   $"+ cheeseNum;
+
+            if (meat.length != 0) {
+            document.getElementById("meat").innerHTML =meat.join(", ")+"  $"+meatNum;
+            }
+
+            document.getElementById("sauce").innerHTML =sauce+"   $0";
+
+            if (veggies.length != 0) {
+            document.getElementById("veggies").innerHTML =veggies.join(", ")+"  $"+veggieNum;
+            }
+
+            document.getElementById("total").innerHTML ="Total Price:  " + "$"+total; 
+
+            alert("Please review your order below");
+        };
+
+        function Cancel() {
+            //Set visual to 0 to clear total
+
+            alert("Your order was canceled. All items will be set to default.");
+
+            $('input[type=checkbox]').each(function() { 
+        this.checked = false; 
+        }); 
+
+            document.getElementById("size").innerHTML ="";
+            document.getElementById("crust").innerHTML = "";
+            document.getElementById("cheese").innerHTML ="";
+            document.getElementById("meat").innerHTML ="";
+            document.getElementById("sauce").innerHTML ="";
+            document.getElementById("veggies").innerHTML ="";
+            document.getElementById("total").innerHTML = "" ;
+        };
+    
+    </script>
+</body>
+</html>
